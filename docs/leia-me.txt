@@ -1,0 +1,2 @@
+Neste diretório serão disponibilizados artefatos de documentação
+como scripts SQL, DER, dentre outros.
