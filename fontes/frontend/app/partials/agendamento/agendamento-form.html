@@ -1,0 +1,93 @@
+<!-- FORMULARIO -->
+<div class="col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                Formulario
+            </div>
+        </div>
+        <div class="panel-body">
+            <form name="clienteForm" role="form" novalidate>
+                <div class="form-group form-group-default required ">
+                    <label>Cliente : </label>
+                    <input type="text" class="form-control" required ng-model="object.nome">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Data Inicio: </label>
+                            <input type="text " class="form-control" required ng-model="object.datanas">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Data Fim : </label>
+                            <input type="text " class="form-control" required ng-model="object.rg">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Valor Desconto: </label>
+                            <input type="text " class="form-control" required ng-model="object.datanas">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Valor Final : </label>
+                            <input type="text " class="form-control" required ng-model="object.rg">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label> Status: </label>
+                            <select name="" id="" class="form-control" requiredm ng-model="object.sexo">
+                                <option value=""></option>
+                                <option value="A">Agendado</option>
+                                <option value="F">Fechado</option>
+                                <option value="C">Cancelado</option>
+                                <option value="O">Orçamento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 ">
+                        <div class="form-group form-group-default required">
+                            <label>Descrição : </label>
+                            <textarea class="form-control " style="min-height:120px;" required ng-model="object.observacao"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default required">
+                            <label> Serviço: </label>
+                            <input type="text" class="form-control" required ng-model="object.service">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Serviço</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="error">{{message}}</div>
+                    </div>
+                    <div class="col-sm-12">
+                        <a href="javascript:;" class="btn btn-add" ng-click="submitForm(clienteForm)">Salvar</a>
+                        <a ui-sref="app.cliente " class=" btn btn-search ">Cancelar</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END FORMULARIO -->

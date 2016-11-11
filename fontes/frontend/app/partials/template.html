@@ -1,0 +1,80 @@
+<header class="header">
+    <span id="menu-action" style="color: #404040">
+        <i class="fa fa-btc fa-2x"></i>Bigodon
+    </span>
+    <div class="logo">
+
+    </div>
+
+
+</header>
+<div class="sidebar">
+    <ul>
+        <li><a href="#/home"><i class="fa fa-home"></i><span>Home</span></a></li>
+        <li><a href="#/cliente"><i class="fa fa-font-awesome"></i><span>Cliente</span></a></li>
+        <li><a href="#/servico"><i class="fa fa-scissors"></i><span>Serviço</span></a></li>
+        <li><a href="#/produto"><i class="fa fa-product-hunt"></i><span>Produto</span></a></li>
+        <li><a href="#/agendamento"><i class="fa fa-calendar-check-o"></i><span>Agendamento</span></a></li>
+        <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-cogs"></i>
+                <span>Configurações</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><i></i><a href="#"><span>Controle de Acesso</span></a></li>
+                <li><i></i><a href="#"><span>Sistemas</span></a></li>
+                <li><i></i><a href="#"><span>Templates</span></a></li>
+                <li><i></i><a href="#"><span>Workflow</span></a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-pie-chart"></i>
+                <span>Relatórios</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><i></i><a href="#"><span>Auditoria</span></a></li>
+                <li><i></i><a href="#"><span>Aplicação/ Rollback</span></a></li>
+                <li><i></i><a href="#"><span>Rastreamento</span></a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- Content -->
+<div class="main">
+    <div class="content">
+        <div ui-view></div>
+    </div>
+    <!-- end content-->
+</div>
+<!-- end main-->
+
+
+
+<script type="text/javascript">
+    $(function() {
+        $('#menu-action').click(function() {
+            $('.sidebar').toggleClass('active');
+            $('.main').toggleClass('active resolve');
+            $(this).toggleClass('active');
+
+            if ($('.sidebar').hasClass('active')) {
+                $(this).find('i').addClass('fa-btc');
+            } else {
+                $(this).find('i').addClass('fa-btc');
+            }
+        });
+
+        // Add hover feedback on menu
+        $('#menu-action, .sidebar').hover(function() {
+            $('.sidebar').toggleClass('hovered');
+        });
+
+        $('.dropdown').mouseleave(function() {
+            $("ul li ").removeClass("open");
+        });
+    });
+</script>
