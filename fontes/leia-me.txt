@@ -1,1 +1,11 @@
-Neste diretório serão disponibilizados os arquivos fontes do projeto Java/Front-end
+Instalar NODEJS
+Instalar BOWER
+Instalar GULP
+
+Executar os seguintes comando
+npm install
+bower install
+
+
+Para executar 
+gulp
