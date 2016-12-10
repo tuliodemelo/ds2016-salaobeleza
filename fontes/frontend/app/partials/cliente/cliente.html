@@ -39,9 +39,10 @@
                                 <td>{{p.cpf_cnpj}}</td>
                                 <td>{{p.telefone}}</td>
                                 <td>{{p.rg}}</td>
-                                <td>{{p.data_nascimento | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{p.data_nascimento | date:'dd/MM/yyyy '}}</td>
                                 <th>
                                     <a href="javascript:;" ui-sref="app.cliente-editar({id:p.idcliente})"><span class="fa fa-pencil"></span></a>
+                                    <a href="javascript:;" ng-click="delete(p.idcliente)"><span class="fa fa-remove"></span></a>
                                 </th>
                             </tr>
                         </tbody>

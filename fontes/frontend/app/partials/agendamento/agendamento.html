@@ -20,21 +20,23 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nome</th>
+                                <th>Servico</th>
                                 <th>Valor</th>
                                 <th>Status</th>
-                                <th>Data Criação</th>
+                                <th>Data Inicio</th>
                                 <th> Ação</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="p in agendamentos | filter:search">
-                                <td>{{p.id}}</td>
-                                <td>{{p.nome}}</td>
-                                <td>{{p.demanda}}</td>
-                                <td>{{p.responsavel}}</td>
-                                <td>{{p.vencimento | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{p.idagenda}}</td>
+                                <td>{{p.idcliente.nome}}</td>
+                                <td>{{p.idservico.nome}}</td>
+                                <td>{{p.idservico.valor}}</td>
+                                <td>{{p.status}}</td>
+                                <td>{{p.data | date:'dd/MM/yyyy'}}</td>
                                 <th>
-                                    <a href="javascript:;" ui-sref="app.agendamento-editar({id:p.id})"><span class="fa fa-pencil"></span></a>
+                                    <a href="javascript:;" ui-sref="app.agendamento-editar({id:p.idagenda})"><span class="fa fa-pencil"></span></a>
                                 </th>
                             </tr>
                         </tbody>

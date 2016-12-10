@@ -34,7 +34,7 @@
                 $scope.object.data_conta = formatarData($scope.object.data_conta);
                 $scope.object.data_vencimento = formatarData($scope.object.data_vencimento);
                 $scope.object.data_pagamento = formatarData($scope.object.data_pagamento);
-                if (!$scope.object.idpagar) {
+                if (!$scope.object.idcontaspagar) {
 
                     pagarAPI.create($scope.object, function() {
                         $state.go('app.pagar');

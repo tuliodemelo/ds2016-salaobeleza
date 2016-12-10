@@ -16,7 +16,7 @@
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label> Fornecedor: </label>
-                            <select name="" id="" class="form-control" required ng-model="object.idfornecedor" ng-options="f.nome for f in fornecedors">
+                            <select name="" id="" class="form-control" required ng-model="object.idfornecedor" ng-options="f.nome for f in fornecedors track by f.idfornecedor">
                             </select>
                         </div>
                     </div>

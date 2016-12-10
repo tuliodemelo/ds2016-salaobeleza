@@ -10,46 +10,28 @@
             <form name="clienteForm" role="form" novalidate>
                 <div class="form-group form-group-default required ">
                     <label>Cliente : </label>
-                    <input type="text" ng-model="object.idcliente" uib-typeahead="c.idcliente as c.nome for c in clientes | filter:$viewValue | limitTo:8"
-                        class="form-control" required>
+                    <select name="" id="" class="form-control" required ng-model="object.idcliente" ng-options="f.nome for f in clientes track by f.idcliente">
+                        <option value="" selected></option>
+                    </select>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
-                            <label>Data Inicio: </label>
-                            <ng-datepicker ng-name="effectiveBeginning" ng-required="true" ng-model="object.data_inicio" dateFormat="dd/mm/yy" minDate="-15D"
-                                maxDate="+1M +10D" buttonText="Show calendar" ng-class="" native-class="form-control input-text"></ng-datepicker>
+                            <label>Data: </label>
+                            <ng-datepicker ng-name="effectiveBeginning" ng-required="true" ng-model="object.data" buttonText="Show calendar" ng-class=""
+                                native-class="form-control input-text"></ng-datepicker>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default required">
-                            <label>Data Fim : </label>
-                            <ng-datepicker ng-name="effectiveBeginning" ng-required="true" ng-model="object.data_fim" dateFormat="dd/mm/yy" minDate="-15D"
-                                maxDate="+1M +10D" buttonText="Show calendar" ng-class="" native-class="form-control input-text"></ng-datepicker>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default required">
-                            <label>Valor Desconto: </label>
-                            <input type="number " class="form-control" required ng-model="object.valor_desconto">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default required">
-                            <label>Valor Final : </label>
-                            <input type="number" class="form-control" required ng-model="object.valor_final">
-                        </div>
-                    </div>
+
 
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label> Status: </label>
-                            <select name="" id="" class="form-control" required ng-model="object.sexo">
+                            <select name="" id="" class="form-control" required ng-model="object.status">
                                 <option value=""></option>
-                                <option value="A">Agendado</option>
-                                <option value="F">Fechado</option>
-                                <option value="C">Cancelado</option>
-                                <option value="O">Orçamento</option>
+                                <option value="Agendado">Agendado</option>
+                                <option value="Fechado">Fechado</option>
+                                <option value="Cancelado">Cancelado</option>
                             </select>
                         </div>
                     </div>
@@ -64,28 +46,12 @@
                     <div class="col-sm-12">
                         <div class="form-group form-group-default required">
                             <label> Serviço: </label>
-                            <div class="col-md-8">
-                                <input type="text" ng-model="object.servico" uib-typeahead="s.nome for s in servicos | filter:$viewValue | limitTo:8" class="form-control"
-                                    required>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-add"><i class="fa fa-plus"></i></button>
-                            </div>
+                            <select name="" id="" class="form-control" required ng-model="object.idservico" ng-options="s.nome for s in servicos track by f.idservico">
+                            <option value=""select="true"></option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Serviço</th>
-                                        <th>Valor</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
+
                     <div class="col-sm-12">
                         <div class="error">{{message}}</div>
                     </div>

@@ -2,13 +2,23 @@
     'use strict';
     angular.module('app').controller('produtoListCtrl', function ($scope, $http, produtoAPI) {
 
-        var entries = produtoAPI.query(function (data) {
-            if (data.length > 0) {
-                $scope.produtos = data;
-            } else {
-                $scope.message = "Não foram encontrados registros."
-            }
-        });
+        var entries = function(){
+            produtoAPI.query(function (data) {
+                if (data.length > 0) {
+                    $scope.produtos = data;
+                } else {
+                    $scope.message = "Não foram encontrados registros."
+                }
+            });
+        }
+        entries();
+
+        $scope.delete = function(id) {
+            produtoAPI.remove({id: id}, function(data) {
+                entries();
+            });
+        };
+
 
     }).controller('produtoCtrl', function ($scope, $http, $state, $stateParams, produtoAPI, categoriaAPI) {
 

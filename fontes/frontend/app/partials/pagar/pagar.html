@@ -25,8 +25,10 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nome</th>
-                                <th>Vencimento</th>
+                                <th>Fornecedor</th>
                                 <th>Valor</th>
+                                <th>Vencimento</th>
+                                <th>Status</th>
                                 <th> Ação</th>
                             </tr>
                         </thead>
@@ -34,10 +36,12 @@
                             <tr ng-repeat="p in pagars | filter:search">
                                 <td>{{p.idcontaspagar}}</td>
                                 <td>{{p.titulo}}</td>
-                                <td>{{p.data_vencimento}}</td>
-                                <td>{{p.valor_conta}}</td>
+                                <td>{{p.idfornecedor.nome}}</td>
+                                <td>R$ {{p.valor_conta}}</td>
+                                <td>{{p.data_vencimento | date:'dd/MM/yyyy '}}</td>
+                                <td>{{p.status}}</td>
                                 <th>
-                                    <a href="javascript:;" ui-sref="app.pagar-editar({id:p.idpagar})"><span class="fa fa-pencil"></span></a>
+                                    <a href="javascript:;" ui-sref="app.pagar-editar({id:p.idcontaspagar})"><span class="fa fa-pencil"></span></a>
                                 </th>
                             </tr>
                         </tbody>

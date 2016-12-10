@@ -2,13 +2,22 @@
     'use strict';
     angular.module('app').controller('servicoListCtrl', function($scope, $http, servicoAPI) {
 
-        var entries = servicoAPI.query(function(data) {
-            if (data.length > 0) {
-                $scope.servicos = data;
-            } else {
-                $scope.message = "Não foram encontrados registros."
-            }
-        });
+        var entries = function(){
+            servicoAPI.query(function (data) {
+                if (data.length > 0) {
+                    $scope.servicos = data;
+                } else {
+                    $scope.message = "Não foram encontrados registros."
+                }
+            });
+        }
+        entries();
+
+        $scope.delete = function(id) {
+            servicoAPI.remove({id: id}, function(data) {
+                entries();
+            });
+        };
 
     }).controller('servicoCtrl', function($scope, $http, $state, $stateParams, servicoAPI) {
 

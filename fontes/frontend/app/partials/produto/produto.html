@@ -39,11 +39,12 @@
                                 <td>{{p.nome}}</td>
                                 <td>{{p.categoria.nome}}</td>
                                 <td>{{p.status}}</td>
-                                <td>{{p.valor_compra_medio}}</td>
-                                <td>{{p.valor_venda}}</td>
+                                <td>R$ {{p.valor_compra_medio}}</td>
+                                <td>R$ {{p.valor_venda}}</td>
                                 <td>{{p.quantidade_estoque}}</td>
                                 <th>
                                     <a href="javascript:;" ui-sref="app.produto-editar({id:p.idproduto})"><span class="fa fa-pencil"></span></a>
+                                    <a href="javascript:;" ng-click="delete(p.idproduto)"><span class="fa fa-remove"></span></a>
                                 </th>
                             </tr>
                         </tbody>

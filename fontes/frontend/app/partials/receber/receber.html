@@ -9,7 +9,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <a ui-sref="app.pagar-criar()" class="btn btn-add">Adicionar Conta</a>
+        <a ui-sref="app.receber-criar()" class="btn btn-add">Adicionar Conta</a>
     </div>
     <div class="col-md-10">
         <div class="panel">
@@ -26,18 +26,22 @@
                                 <th>Id</th>
                                 <th>Nome</th>
                                 <th>Valor</th>
+                                <th>Vencimento</th>
+                                <th>Cliente</th>
                                 <th>Status</th>
                                 <th> Ação</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="p in pagars | filter:search">
-                                <td>{{p.idpagar}}</td>
-                                <td>{{p.nome}}</td>
-                                <td>{{p.valor}}</td>
+                            <tr ng-repeat="p in recebers | filter:search">
+                                <td>{{p.idcontasreceber}}</td>
+                                <td>{{p.titulo}}</td>
+                                <td>R$ {{p.valor_conta}}</td>
+                                <td>{{p.data_vencimento | date:'dd/MM/yyyy '}}</td>
+                                <td>{{p.idcliente.nome}}</td>
                                 <td>{{p.status}}</td>
                                 <th>
-                                    <a href="javascript:;" ui-sref="app.pagar-editar({id:p.idpagar})"><span class="fa fa-pencil"></span></a>
+                                    <a href="javascript:;" ui-sref="app.receber-editar({id:p.idcontasreceber})"><span class="fa fa-pencil"></span></a>
                                 </th>
                             </tr>
                         </tbody>

@@ -1,17 +1,20 @@
 (function() {
     'use strict';
     angular.module('app').controller('clienteListCtrl', function($scope, $http, clienteAPI) {
-        var entries = clienteAPI.query(function(data) {
-            if (data.length > 0) {
-                $scope.clientes = data;
-            } else {
-                $scope.message = "Não foram encontrados registros."
-            }
-        });
+        var entries = function(){
+            clienteAPI.query(function (data) {
+                if (data.length > 0) {
+                    $scope.clientes = data;
+                } else {
+                    $scope.message = "Não foram encontrados registros."
+                }
+            });
+        }
+        entries();
 
-        $scope.deleteProduct = function(id) {
-            clienteAPI.remove({ id: id }, function(data) {
-
+        $scope.delete = function(id) {
+            clienteAPI.remove({id: id}, function(data) {
+                entries();
             });
         };
 

@@ -28,9 +28,10 @@
 
         if ($stateParams.id !== undefined) {
             var agendamento = agendamentoAPI.get({ id: $stateParams.id }, function(data) {
+                var date = data.data;
                 $scope.object = data;
-                $scope.object.data_fim = formatarData(data.data_fim);
-                $scope.object.data_inicio = formatarData(data.data_inicio);
+                $scope.object.data = formatarData2(date);
+
             });
         }
         $scope.submitForm = function(form) {
@@ -38,9 +39,8 @@
                 $scope.message = 'Verifique o formulário campos obrigatórios não preenchidos';
             } else {
                 $scope.message = '';
-                if (!$scope.object.idagendamento) {
-                    $scope.object.data_fim = formatarData($scope.object.data_fim);
-                    $scope.object.data_inicio = formatarData($scope.object.data_inicio);
+                $scope.object.data = formatarData($scope.object.data);
+                if (!$scope.object.idagenda) {
                     agendamentoAPI.create($scope.object, function() {
                         $state.go('app.agendamento');
                     });

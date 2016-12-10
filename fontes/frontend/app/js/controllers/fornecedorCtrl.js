@@ -1,17 +1,20 @@
 (function() {
     'use strict';
     angular.module('app').controller('fornecedorListCtrl', function($scope, $http, fornecedorAPI) {
-        var entries = fornecedorAPI.query(function(data) {
-            if (data.length > 0) {
-                $scope.fornecedors = data;
-            } else {
-                $scope.message = "Não foram encontrados registros."
-            }
-        });
+        var entries = function(){
+            fornecedorAPI.query(function (data) {
+                if (data.length > 0) {
+                    $scope.fornecedors = data;
+                } else {
+                    $scope.message = "Não foram encontrados registros."
+                }
+            });
+        }
+        entries();
 
-        $scope.deleteProduct = function(id) {
-            fornecedorAPI.remove({ id: id }, function(data) {
-
+        $scope.delete = function(id) {
+            fornecedorAPI.remove({id: id}, function(data) {
+                entries();
             });
         };
 
