@@ -1,11 +1,25 @@
 Instalar NODEJS
-Instalar BOWER
-Instalar GULP
+https://nodejs.org/en/download/
 
-Executar os seguintes comando
+Instalar BOWER
+$ npm install -g bower
+
+
+Instalar GULP
+npm install --global gulp-cli
+
+Executar os seguintes comando na pasta frontEnd
+
 npm install
 bower install
-
+caso peça para selecionar a versão do angular 1.5.8
 
 Para executar 
 gulp
+Comando executa as task 
+
+
+Para acessar a aplicação 
+http://localhost:5000/#!/home
+
+http://localhost:5000/#!/ o login não foi implementado
