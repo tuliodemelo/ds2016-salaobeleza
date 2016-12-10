@@ -1,12 +1,12 @@
 {
-  "name": "klonner",
+  "name": "Bigodon",
   "description": "",
   "main": "index.js",
   "authors": [
-    "Kyros Tecnologia"
+    "Bigodon"
   ],
   "license": "ISC",
-  "homepage": "www.kyros.com.br",
+  "homepage": "www.Bigodon.com.br",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -21,12 +21,15 @@
   "dependencies": {
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
-    "angular-route": "^1.5.8",
+    "angular-ui-router": "^0.3.2",
     "jquery": "^3.1.0",
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "font-awesome": "fontawesome#^4.6.3",
     "angular-resource": "^1.5.8",
-    "angular-bootstrap": "^2.2.0"
+    "angular-bootstrap": "^2.3.0",
+    "angular-input-masks": "^2.5.0",
+    "ng-filters-br": "^1.0.2",
+    "ng.datepicker-ui": "*"
   }
 }

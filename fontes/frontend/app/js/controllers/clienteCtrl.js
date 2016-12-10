@@ -1,53 +1,64 @@
 (function() {
     'use strict';
     angular.module('app').controller('clienteListCtrl', function($scope, $http, clienteAPI) {
+        var entries = clienteAPI.query(function(data) {
+            if (data.length > 0) {
+                $scope.clientes = data;
+            } else {
+                $scope.message = "Não foram encontrados registros."
+            }
+        });
 
-        $scope.clientes = [{
-            'id': 0,
-            'nome': 'Vinicius Vense',
-            'demanda': 'AB',
-            'sistema': 'Kenan',
-            'situacao': 'Avaliação',
-            'responsavel': 'Usuário',
-            'vencimento': new Date(),
-        }, {
-            'id': 1,
-            'nome': 'Usuario x',
-            'demanda': 'AC',
-            'sistema': 'Kenan',
-            'situacao': 'Avaliação',
-            'responsavel': 'XYEQER',
-            'vencimento': '01/01/2016',
-        }];
-    }).controller('clienteCtrl', function($scope, $http, $stateParams, clienteAPI) {
-        $scope.service = clienteAPI;
-        console.log(clienteAPI);
+        $scope.deleteProduct = function(id) {
+            clienteAPI.remove({ id: id }, function(data) {
+
+            });
+        };
+
+    }).controller('clienteCtrl', function($scope, $http, $state, $stateParams, clienteAPI) {
 
         if ($stateParams.id !== undefined) {
-            $scope.service.get({ id: $stateParams.id }).then(function(data) {
+            var cliente = clienteAPI.get({ id: $stateParams.id }, function(data) {
                 $scope.object = data;
+                $scope.object.data_nascimento = formatarData2(data.data_nascimento);
             });
         }
 
         $scope.submitForm = function(form) {
             if (!form.$valid) {
                 $scope.message = 'Verifique o formulário campos obrigatórios não preenchidos';
-                alert("Aqui");
             } else {
                 $scope.message = '';
-                if (!$scop.object.idCliente) {
-                    $scope.service.$save(function() {
-                        $state.go('cliente');
+                if (!$scope.object.idcliente) {
+                    $scope.object.data_nascimento = formatarData($scope.object.data_nascimento);
+                    clienteAPI.create($scope.object, function() {
+                        $state.go('app.cliente');
                     });
                 } else {
-                    $scope.service.$update(function() {
-                        $state.go('cliente');
+                    $scope.object.data_nascimento = formatarData($scope.object.data_nascimento);
+                    clienteAPI.update($scope.object, function() {
+                        $state.go('app.cliente');
                     });
                 }
             }
         };
 
+        function formatarData(data) {
+            var parts = data.split("/");
+            return parts[2]+'-'+ parts[1] +'-'+ parts[0];
+        }
 
+        function formatarData2(data) {
+            var d = new Date(data),
+                mes = '' + (d.getMonth() + 1),
+                dia = '' + d.getDate(),
+                ano = d.getFullYear();
+
+            if (mes.length < 2) mes = '0' + mes;
+            if (dia.length < 2) dia = '0' + dia;
+
+            return [dia, mes,ano].join('/');
+        }
     });
 
-}());
+} ());

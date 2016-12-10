@@ -795,10 +795,14 @@ table thead th {
 }
 
 
-/* 
+/*
 ERRROS
 */
 
 .error {
     color: red;
+}
+
+.dropdown-menu{
+     position: static;
 }

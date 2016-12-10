@@ -1,0 +1,100 @@
+<!-- FORMULARIO -->
+<div class="col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+
+            </div>
+        </div>
+        <div class="panel-body">
+            <form name="fornecedorForm" role="form" novalidate>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default required">
+                            <label>Nome : </label>
+                            <input type="text" class="form-control" ng-model="object.nome">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default required">
+                            <label>Razão Social : </label>
+                            <input type="text" class="form-control" ng-model="object.razao_social">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>CPF/CNPJ : </label>
+                            <input type="text" class="form-control" required ng-model="object.cpf_cnpj">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Telefone : </label>
+                            <input type="text" class="form-control" required ng-model="object.telefone">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Email : </label>
+                            <input type="text" class="form-control" required ng-model="object.email">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Site : </label>
+                            <input type="text" class="form-control" required ng-model="object.site">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="form-group form-group-default required">
+                            <label>Endereço : </label>
+                            <input type="text" class="form-control" required ng-model="object.endereco">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group form-group-default required">
+                            <label>Número : </label>
+                            <input type="text" class="form-control" required ng-model="object.numero">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="form-group form-group-default required">
+                            <label>Bairro : </label>
+                            <input type="text" class="form-control" required ng-model="object.bairro">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Cidade : </label>
+                            <input type="text" class="form-control" required ng-model="object.cidade">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Estado : </label>
+                            <input type="text" class="form-control" required ng-model="object.estado">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default required">
+                            <label>Observação : </label>
+                            <textarea class="form-control" style="min-height:120px;" required ng-model="object.observacao"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="error">{{message}}</div>
+                    </div>
+                    <div class="col-sm-12">
+                        <a href="javascript:;" class="btn btn-add" ng-click="submitForm(fornecedorForm)">Salvar</a>
+                        <a ui-sref="app.fornecedor" class=" btn btn-search">Cancelar</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END FORMULARIO -->

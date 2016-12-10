@@ -13,6 +13,11 @@
     </div>
     <div class="col-md-10">
         <div class="panel">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-8">
+                    <input type="search" placeholder="Pesquisar" ng-model="search" class="form-control">
+                </div>
+            </div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-bordered ">
@@ -22,24 +27,23 @@
                                 <th>Nome</th>
                                 <th>Valor</th>
                                 <th>Status</th>
-                                <th>Data Criação</th>
                                 <th> Ação</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="p in servicos | filter:search">
-                                <td>{{p.id}}</td>
+                                <td>{{p.idservico}}</td>
                                 <td>{{p.nome}}</td>
-                                <td>{{p.demanda}}</td>
-                                <td>{{p.responsavel}}</td>
-                                <td>{{p.vencimento | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{p.valor}}</td>
+                                <td>{{p.status}}</td>
                                 <th>
-                                    <a href="javascript:;" ui-sref="app.servico-editar({id:p.id})"><span class="fa fa-pencil"></span></a>
+                                    <a href="javascript:;" ui-sref="app.servico-editar({id:p.idservico})"><span class="fa fa-pencil"></span></a>
                                 </th>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <p>{{message}}</p>
             </div>
         </div>
     </div>

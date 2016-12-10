@@ -3,20 +3,24 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title">
-                Formulario
+
             </div>
         </div>
         <div class="panel-body">
             <form name="clienteForm" role="form" novalidate>
-                <div class="form-group form-group-default required ">
-                    <label>Nome : </label>
-                    <input type="text" class="form-control" required ng-model="object.nome">
-                </div>
                 <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default required">
+                            <label>Nome : </label>
+                            <input type="text" class="form-control" ng-model="object.nome">
+                        </div>
+                    </div>
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label> Sexo: </label>
-                            <select name="" id="" class="form-control" requiredm ng-model="object.sexo">
+                            <select name="" id="" class="form-control" required ng-model="object.sexo">
                                 <option value=""></option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
@@ -26,57 +30,71 @@
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Data de Nascimento : </label>
-                            <input type="text " class="form-control" required ng-model="object.datanas">
+                            <ng-datepicker ng-name="effectiveBeginning" ng-required="true" ng-model="object.data_nascimento" dateFormat="dd/mm/yy" buttonText="Show calendar"
+                                ng-class="" native-class="form-control input-text"></ng-datepicker>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>RG : </label>
-                            <input type="text " class="form-control" required ng-model="object.rg">
+                            <input type="text" class="form-control" required ng-model="object.rg">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
-                            <label>CPF : </label>
-                            <input type="text " class="form-control" required ng-model="object.cpf">
+                            <label>CPF/CNPJ : </label>
+                            <input type="text" class="form-control" required ng-model="object.cpf_cnpj">
                         </div>
                     </div>
-                    <div class="col-sm-6 ">
+                    <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Email : </label>
-                            <input type="email " class="form-control" required ng-model="object.email">
+                            <input type="text" class="form-control" required ng-model="object.email">
                         </div>
                     </div>
-                    <div class="col-sm-6 ">
+                    <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Telefone : </label>
-                            <input type="text " class="form-control" required ng-model="object.telefone">
+                            <input type="text" class="form-control" required ng-model="object.telefone">
                         </div>
                     </div>
 
-                    <div class="col-sm-12 ">
+                    <div class="col-sm-5">
                         <div class="form-group form-group-default required">
                             <label>Endereço : </label>
-                            <input type="text " class="form-control" required ng-model="object.endereco">
+                            <input type="text" class="form-control" required ng-model="object.endereco">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group form-group-default required">
+                            <label>Número : </label>
+                            <input type="text" class="form-control" required ng-model="object.numero">
                         </div>
                     </div>
 
-                    <div class="col-sm-6 ">
+                    <div class="col-sm-5">
+                        <div class="form-group form-group-default required">
+                            <label>Bairro : </label>
+                            <input type="text" class="form-control" required ng-model="object.bairro">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Cidade : </label>
-                            <input type="text " class="form-control" required ng-model="object.cidade">
+                            <input type="text" class="form-control" required ng-model="object.cidade">
                         </div>
                     </div>
-                    <div class="col-sm-6 ">
+                    <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Estado : </label>
-                            <input type="text " class="form-control" required ng-model="object.estado">
+                            <input type="text" class="form-control" required ng-model="object.estado">
                         </div>
                     </div>
-                    <div class="col-sm-12 ">
+                    <div class="col-sm-12">
                         <div class="form-group form-group-default required">
                             <label>Observação : </label>
-                            <textarea class="form-control " style="min-height:120px;" required ng-model="object.observacao"></textarea>
+                            <textarea class="form-control" style="min-height:120px;" required ng-model="object.observacao"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -84,7 +102,7 @@
                     </div>
                     <div class="col-sm-12">
                         <a href="javascript:;" class="btn btn-add" ng-click="submitForm(clienteForm)">Salvar</a>
-                        <a ui-sref="app.cliente " class=" btn btn-search ">Cancelar</a>
+                        <a ui-sref="app.cliente" class=" btn btn-search">Cancelar</a>
                     </div>
 
                 </div>

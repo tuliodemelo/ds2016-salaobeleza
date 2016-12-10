@@ -2,17 +2,22 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
-                <h1>Servico</h1>
+                <h1>Produto</h1>
             </div>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
-        <a ui-sref="app.servico-criar()" class="btn btn-add">Adicionar Servico</a>
+        <a ui-sref="app.produto-criar()" class="btn btn-add">Adicionar Produto</a>
     </div>
     <div class="col-md-10">
         <div class="panel">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-8">
+                    <input type="search" placeholder="Pesquisar" ng-model="search" class="form-control">
+                </div>
+            </div>
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-bordered ">
@@ -20,28 +25,31 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nome</th>
-                                <th>Valor</th>
+                                <th>Categoria</th>
                                 <th>Status</th>
-                                <th>Data Criação</th>
+                                <th>Valor Custo</th>
+                                <th>Valor Venda</th>
+                                <th>Qtd. Estoque</th>
                                 <th> Ação</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="p in servicos | filter:search">
-                                <td>{{p.id}}</td>
+                            <tr ng-repeat="p in produtos | filter:search">
+                                <td>{{p.idproduto}}</td>
                                 <td>{{p.nome}}</td>
-                                <td>{{p.demanda}}</td>
-                                <td>{{p.sistema}}</td>
-                                <td>{{p.situacao}}</td>
-                                <td>{{p.responsavel}}</td>
-                                <td>{{p.vencimento | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                                <td>{{p.categoria.nome}}</td>
+                                <td>{{p.status}}</td>
+                                <td>{{p.valor_compra_medio}}</td>
+                                <td>{{p.valor_venda}}</td>
+                                <td>{{p.quantidade_estoque}}</td>
                                 <th>
-                                    <a href="javascript:;" ui-sref="app.servico-editar({id:p.id})"><span class="fa fa-pencil"></span></a>
+                                    <a href="javascript:;" ui-sref="app.produto-editar({id:p.idproduto})"><span class="fa fa-pencil"></span></a>
                                 </th>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <p>{{message}}</p>
             </div>
         </div>
     </div>

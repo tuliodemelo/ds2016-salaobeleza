@@ -10,38 +10,41 @@
             <form name="clienteForm" role="form" novalidate>
                 <div class="form-group form-group-default required ">
                     <label>Cliente : </label>
-                    <input type="text" class="form-control" required ng-model="object.nome">
+                    <input type="text" ng-model="object.idcliente" uib-typeahead="c.idcliente as c.nome for c in clientes | filter:$viewValue | limitTo:8"
+                        class="form-control" required>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Data Inicio: </label>
-                            <input type="text " class="form-control" required ng-model="object.datanas">
+                            <ng-datepicker ng-name="effectiveBeginning" ng-required="true" ng-model="object.data_inicio" dateFormat="dd/mm/yy" minDate="-15D"
+                                maxDate="+1M +10D" buttonText="Show calendar" ng-class="" native-class="form-control input-text"></ng-datepicker>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Data Fim : </label>
-                            <input type="text " class="form-control" required ng-model="object.rg">
+                            <ng-datepicker ng-name="effectiveBeginning" ng-required="true" ng-model="object.data_fim" dateFormat="dd/mm/yy" minDate="-15D"
+                                maxDate="+1M +10D" buttonText="Show calendar" ng-class="" native-class="form-control input-text"></ng-datepicker>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Valor Desconto: </label>
-                            <input type="text " class="form-control" required ng-model="object.datanas">
+                            <input type="number " class="form-control" required ng-model="object.valor_desconto">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label>Valor Final : </label>
-                            <input type="text " class="form-control" required ng-model="object.rg">
+                            <input type="number" class="form-control" required ng-model="object.valor_final">
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group form-group-default required">
                             <label> Status: </label>
-                            <select name="" id="" class="form-control" requiredm ng-model="object.sexo">
+                            <select name="" id="" class="form-control" required ng-model="object.sexo">
                                 <option value=""></option>
                                 <option value="A">Agendado</option>
                                 <option value="F">Fechado</option>
@@ -61,7 +64,13 @@
                     <div class="col-sm-12">
                         <div class="form-group form-group-default required">
                             <label> Serviço: </label>
-                            <input type="text" class="form-control" required ng-model="object.service">
+                            <div class="col-md-8">
+                                <input type="text" ng-model="object.servico" uib-typeahead="s.nome for s in servicos | filter:$viewValue | limitTo:8" class="form-control"
+                                    required>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-add"><i class="fa fa-plus"></i></button>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12">

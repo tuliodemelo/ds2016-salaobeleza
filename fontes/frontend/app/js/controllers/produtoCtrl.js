@@ -1,52 +1,41 @@
-(function() {
+(function () {
     'use strict';
-    angular.module('app').controller('produtoListCtrl', function($scope, $http, produtoAPI) {
+    angular.module('app').controller('produtoListCtrl', function ($scope, $http, produtoAPI) {
 
-        $scope.produtos = [{
-            'id': 0,
-            'nome': 'Vinicius Vense',
-            'demanda': 'AB',
-            'sistema': 'Kenan',
-            'situacao': 'Avaliação',
-            'responsavel': 'Usuário',
-            'vencimento': new Date(),
-        }, {
-            'id': 1,
-            'nome': 'Usuario x',
-            'demanda': 'AC',
-            'sistema': 'Kenan',
-            'situacao': 'Avaliação',
-            'responsavel': 'XYEQER',
-            'vencimento': '01/01/2016',
-        }];
-    }).controller('produtoCtrl', function($scope, $http, $stateParams, produtoAPI) {
-        $scope.service = produtoAPI;
+        var entries = produtoAPI.query(function (data) {
+            if (data.length > 0) {
+                $scope.produtos = data;
+            } else {
+                $scope.message = "Não foram encontrados registros."
+            }
+        });
+
+    }).controller('produtoCtrl', function ($scope, $http, $state, $stateParams, produtoAPI, categoriaAPI) {
 
         if ($stateParams.id !== undefined) {
-            // $scope.service.get({ id: $stateParams.id }).then(function(data) {
-            //     $scope.object = data;
-            // });
+            var produto = produtoAPI.get({ id: $stateParams.id }, function (data) {
+                $scope.object = data;
+            });
         }
+        var entries = categoriaAPI.query(function (data) {
+            $scope.categoria = data;
+        });
 
-        $scope.submitForm = function(form) {
+        $scope.submitForm = function (form) {
             if (!form.$valid) {
                 $scope.message = 'Verifique o formulário campos obrigatórios não preenchidos';
-                alert("Aqui");
             } else {
                 $scope.message = '';
-                if (!$scop.object.idCliente) {
-                    $scope.service.$save(function() {
-                        // $state.go('/produto');
+                if (!$scope.object.idproduto) {
+                    produtoAPI.create($scope.object, function () {
+                        $state.go('app.produto');
                     });
                 } else {
-                    $scope.service.$update(function() {
-                        // $state.go('/produto');
+                    produtoAPI.update($scope.object, function () {
+                        $state.go('app.produto');
                     });
                 }
             }
         };
-
-
     });
-
-}());
+} ());

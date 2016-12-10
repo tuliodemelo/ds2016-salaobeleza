@@ -1,8 +1,8 @@
-(function() {
+(function () {
     'use strict';
 
 
-    angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    angular.module('app').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/");
         // routes
@@ -36,7 +36,7 @@
                 controller: 'clienteCtrl'
             })
 
-        .state('app.servico', {
+            .state('app.servico', {
                 url: "/servico",
                 templateUrl: "partials/servico/servico.html",
                 controller: 'servicoListCtrl'
@@ -52,7 +52,7 @@
                 controller: 'servicoCtrl'
             })
 
-        .state('app.produto', {
+            .state('app.produto', {
                 url: "/produto",
                 templateUrl: "partials/produto/produto.html",
                 controller: 'produtoListCtrl'
@@ -69,7 +69,7 @@
             })
 
 
-        .state('app.agendamento', {
+            .state('app.agendamento', {
                 url: "/agendamento",
                 templateUrl: "partials/agendamento/agendamento.html",
                 controller: 'agendamentoListCtrl'
@@ -83,7 +83,55 @@
                 url: "/agendamento/:id/edit",
                 templateUrl: "partials/agendamento/agendamento-form.html",
                 controller: 'agendamentoCtrl'
+            })
+
+            .state('app.fornecedor', {
+                url: "/fornecedor",
+                templateUrl: "partials/fornecedor/fornecedor.html",
+                controller: 'fornecedorListCtrl'
+            })
+            .state('app.fornecedor-criar', {
+                url: "/fornecedor/criar",
+                templateUrl: "partials/fornecedor/fornecedor-form.html",
+                controller: 'fornecedorCtrl'
+            })
+            .state('app.fornecedor-editar', {
+                url: "/fornecedor/:id/edit",
+                templateUrl: "partials/fornecedor/fornecedor-form.html",
+                controller: 'fornecedorCtrl'
+            })
+
+            .state('app.pagar', {
+                url: "/contas-pagar",
+                templateUrl: "partials/pagar/pagar.html",
+                controller: 'pagarListCtrl'
+            })
+            .state('app.pagar-criar', {
+                url: "/contas-pagar/criar",
+                templateUrl: "partials/pagar/pagar-form.html",
+                controller: 'pagarCtrl'
+            })
+            .state('app.pagar-editar', {
+                url: "/contas-pagar/:id/edit",
+                templateUrl: "partials/pagar/pagar-form.html",
+                controller: 'pagarCtrl'
+            })
+
+            .state('app.receber', {
+                url: "/contas-receber",
+                templateUrl: "partials/receber/receber.html",
+                controller: 'receberListCtrl'
+            })
+            .state('app.receber-criar', {
+                url: "/contas-receber/criar",
+                templateUrl: "partials/receber/receber-form.html",
+                controller: 'receberCtrl'
+            })
+            .state('app.receber-editar', {
+                url: "/contas-receber/:id/edit",
+                templateUrl: "partials/receber/receber-form.html",
+                controller: 'receberCtrl'
             });
     }]);
 
-}());
+} ());

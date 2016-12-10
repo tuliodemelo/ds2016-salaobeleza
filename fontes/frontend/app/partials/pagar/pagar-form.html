@@ -1,0 +1,80 @@
+<!-- FORMULARIO -->
+<div class="col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title"></div>
+        </div>
+        <div class="panel-body">
+            <form name="clienteForm" role="form" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group form-group-default required">
+                            <label>Titulo : </label>
+                            <input type="text" class="form-control" required ng-model="object.titulo">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label> Fornecedor: </label>
+                            <select name="" id="" class="form-control" required ng-model="object.idfornecedor" ng-options="f.nome for f in fornecedors">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Data Conta: </label>
+                            <ng-datepicker ng-name="" ng-required="true" ng-model="object.data_conta" dateFormat="dd/mm/yy" buttonText="Show calendar"
+                                ng-class="" native-class="form-control input-text"></ng-datepicker>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Data Vencimento: </label>
+                            <ng-datepicker ng-name="" ng-required="true" ng-model="object.data_vencimento" dateFormat="dd/mm/yy" buttonText="Show calendar"
+                                ng-class="" native-class="form-control input-text"></ng-datepicker>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Data Pagamento: </label>
+                            <ng-datepicker ng-name="" ng-required="true" ng-model="object.data_pagamento" dateFormat="dd/mm/yy" buttonText="Show calendar"
+                                ng-class="" native-class="form-control input-text"></ng-datepicker>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label> Status: </label>
+                            <select name="" id="" class="form-control" required ng-model="object.status">
+                                <option value=""></option>
+                                <option value="Paga">Paga</option>
+                                <option value="Debito">Debito</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-group-default required">
+                            <label>Valor da Conta: </label>
+                            <input type="number" class="form-control" required ng-model="object.valor_conta">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default required">
+                            <label>Descrição : </label>
+                            <textarea class="form-control" style="min-height:120px;" required ng-model="object.descricao"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="error">{{message}}</div>
+                    </div>
+                    <div class="col-sm-12">
+                        <a href="javascript:;" class="btn btn-add" ng-click="submitForm(clienteForm)">Salvar</a>
+                        <a ui-sref="app.cliente" class=" btn btn-search">Cancelar</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END FORMULARIO -->
